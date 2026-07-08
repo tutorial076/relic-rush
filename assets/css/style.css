@@ -1,0 +1,206 @@
+/* ===========================
+   RELIC RUSH - GLOBAL STYLES
+   =========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #0a0a0a;
+    font-family: 'Arial', sans-serif;
+    -webkit-app-region: drag;
+}
+
+/* Prevent zoom and scaling */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* Game Container */
+#game-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+}
+
+/* Canvas */
+canvas {
+    display: block;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
+
+/* Disable context menu */
+canvas {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Prevent double-tap zoom on touch devices */
+input, button, textarea, select {
+    font-size: 16px;
+}
+
+/* UI Elements */
+button {
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Text Styles */
+h1, h2, h3 {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a0f0f 0%, #0f0a1a 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.loading-bar {
+    width: 200px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.loading-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ffd700, #ffed4e);
+    width: 0%;
+    animation: loading 2s ease-in-out infinite;
+}
+
+@keyframes loading {
+    0% { width: 0%; }
+    50% { width: 100%; }
+    100% { width: 100%; }
+}
+
+/* Splash Screen */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a0f0f 0%, #0f0a1a 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeOut 0.5s ease-in-out 3s forwards;
+}
+
+.splash-content {
+    text-align: center;
+    color: #fff;
+}
+
+.splash-logo {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffd700;
+}
+
+.splash-studio {
+    font-size: 14px;
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    h2 {
+        font-size: 18px;
+    }
+}
+
+/* Touch-friendly sizing */
+@media (hover: none) and (pointer: coarse) {
+    button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Dark theme */
+body {
+    color: #fff;
+    background: #000;
+}
+
+/* Scrollbar (if needed) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffd700;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffed4e;
+}

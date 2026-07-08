@@ -5,7 +5,7 @@
 
 const phaser_config = {
     type: Phaser.AUTO,
-    canvas: document.getElementById('game-container'),
+    parent: 'game-container',
     width: GameConfig.GAME_WIDTH,
     height: GameConfig.GAME_HEIGHT,
     scale: {

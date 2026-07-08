@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>RELIC RUSH - Endless Runner Game</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div id="game-container"></div>
+    
+    <!-- Phaser 3 -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+    
+    <!-- Game Code -->
+    <script src="src/utils/Config.js"></script>
+    <script src="src/utils/AssetManager.js"></script>
+    <script src="src/utils/SaveManager.js"></script>
+    <script src="src/utils/AudioManager.js"></script>
+    <script src="src/utils/InputManager.js"></script>
+    
+    <script src="src/objects/Player.js"></script>
+    <script src="src/objects/Obstacle.js"></script>
+    <script src="src/objects/Collectible.js"></script>
+    <script src="src/objects/PowerUp.js"></script>
+    <script src="src/objects/Enemy.js"></script>
+    <script src="src/objects/Boss.js"></script>
+    
+    <script src="src/systems/LevelGenerator.js"></script>
+    <script src="src/systems/UIManager.js"></script>
+    <script src="src/systems/ParticleManager.js"></script>
+    <script src="src/systems/MissionSystem.js"></script>
+    <script src="src/systems/AchievementSystem.js"></script>
+    
+    <script src="src/scenes/BootScene.js"></script>
+    <script src="src/scenes/LoadingScene.js"></script>
+    <script src="src/scenes/MainMenuScene.js"></script>
+    <script src="src/scenes/GameScene.js"></script>
+    <script src="src/scenes/PauseMenuScene.js"></script>
+    <script src="src/scenes/GameOverScene.js"></script>
+    <script src="src/scenes/SettingsScene.js"></script>
+    <script src="src/scenes/ShopScene.js"></script>
+    <script src="src/scenes/CharacterSelectScene.js"></script>
+    <script src="src/scenes/LeaderboardScene.js"></script>
+    
+    <script src="src/Game.js"></script>
+</body>
+</html>

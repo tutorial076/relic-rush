@@ -61,12 +61,37 @@ class LoadingScene extends Phaser.Scene {
             assetText.setText('Loading: ' + file.key);
         });
 
+        // Log any asset load errors to console for debugging
+        this.load.on('loaderror', file => {
+            try {
+                console.error('Asset load error:', file && file.key, file && (file.src || file.url) || file);
+            } catch (e) {
+                console.error('Asset load error (unknown file):', e);
+            }
+        });
+
+        // On complete, clean up visuals
         this.load.on('complete', () => {
             progressBar.destroy();
             progressBox.destroy();
             loadingText.destroy();
             percentText.destroy();
             assetText.destroy();
+        });
+
+        // Safety timeout: if loader hasn't finished after 20s, log and force complete
+        this.time.delayedCall(20000, () => {
+            // If loader hasn't finished, force the complete event so the app can continue
+            if (this.load.totalToLoad && this.load.totalToLoad > 0 && this.load.progress < 0.999) {
+                console.warn('Loader timeout — forcing continue. Check network/console for missing assets.');
+                // Dump remaining files for debugging
+                try {
+                    console.warn('Remaining to load:', this.load.totalToLoad, 'progress:', this.load.progress);
+                } catch (e) {
+                    // ignore
+                }
+                this.load.emit('complete');
+            }
         });
 
         // Load all assets

@@ -6,6 +6,7 @@
 const phaser_config = {
     type: Phaser.AUTO,
     parent: 'game-container',
+    audio: { disableWebAudio: true },
     width: GameConfig.GAME_WIDTH,
     height: GameConfig.GAME_HEIGHT,
     scale: {
